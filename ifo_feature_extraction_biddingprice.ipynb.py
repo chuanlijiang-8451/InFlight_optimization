@@ -176,7 +176,7 @@ target_ehhn = pd.read_csv("/dbfs/FileStore/shared_uploads/c146802@8451.com/reds_
 
 # COMMAND ----------
 
-# DBTITLE 1,Filter REDs records for target audience
+# DBTITLE 1,Derive weekly REDs features for target audience
 reds_2223_target = reds_2223.join(f.broadcast(reds_2223_target_ehhn), reds_2223.columns[1:2])
 reds_2223_target.write.parquet("abfss://users@sa8451labsdev.dfs.core.windows.net/c146802/inflight/reds_2223_target_" + timestr + ".parquet")
 reds_2223_target_latest_tmp = reds_2223_target.withColumn("rn", f.row_number()
