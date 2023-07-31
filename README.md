@@ -1,14 +1,14 @@
 # InFlight_optimization
 
+This repository contains three model training and inference notebooks that will be incorporated to the IFO pipeline repository: https://github.com/8451LLC/inflight_offsite_media_optimization.git.
+
 InFlight Optimization aims to build towards a long-term vision of real-time InFlight Ads bidding optimization. This optimization provides personalized bid estimation utilizing Kroger's first-party data together with Trade Desk real-time features, as well as the InFlight Optimization strategies that responde to the Trade Desk real-time bidding landscapes.  
+
+IFO contains two phases: 
 
 Weekly IFO phase: aims to optimize attributable spends by targetting hourseholds at the start of a campaign
 
 Real-time IFO phase: aims to optimizing lift, households are targeted real-time, household level biding prices are calculated real-time. 
-
-This repository contains the three notebooks that will be incorporated to the IFO pipeline repository: https://github.com/8451LLC/inflight_offsite_media_optimization.git.
-
-Three notebooks are included in this repository include feature extractions, training, and inference. 
 
 The model data source includes Trade Desk REDS (Raw Event Data Stream) log data, media engagement features, embedding, and household purchase behaviors. 
 
