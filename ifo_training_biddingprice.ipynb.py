@@ -121,23 +121,12 @@ sz_s5 = s5.shape[0]
 for i, h in enumerate(header):
     if h == "MediaCostInBucks":
         header[i] = "biddingprice"
-    #if h == "clickthrough_conversion":
-    #    header[i] = "ctr_conversion"
-    #if h == "viewthrough_nonclk_conversion":
-    #    header[i] = "vt_conversion"
-    #if h == "sales_conversion":
-    #    header[i] = "sales_conversion"
-    #if h == "net_spend_amt":
-    #    header[i] = "spend_amount"
+        
 df = pd.DataFrame(np.random.randint(1, 5, size=(sz_s5, 1)), columns=["AuctionType"])
 for h in header:
     df[h] = np.random.randint(1, 7, size=(sz_s5, 1))
 
 df["biddingprice"] = np.random.uniform(2, 4, [sz_s5,1])
-#df["ctr_conversion"] = np.random.randint(2, size=(sz_s5,1))
-#df["vt_conversion"] = np.random.randint(2, size=(sz_s5,1))
-#df["sales_conversion"] = np.random.randint(2, size=(sz_s5,1))
-#df["spend_amount"] = np.random.randint(2, size=(sz_s5,1))
 
 encoder = OrdinalEncoder(cols=s5_features, handle_unknown="impute").fit(df)
 df = encoder.transform(df)
@@ -146,13 +135,6 @@ for h in header:
     df[h] = s5[h]
 
 df["biddingprice"]=s5["biddingprice"].astype("float") - 0.0006 + random.uniform(0, 0.0008) # act like SecondPrice Auction
-#df["ctr_conversion"]=s5["ctr_conversion"]
-#df["vt_conversion"]=s5["vt_conversion"]
-#df["sales_conversion"]=s5["sales_conversion"]
-#df["spend_amount"]=s5["spend_amount"]
-
-#df = df.drop('spend_amount', axis=1)
-#print("imbalance ===>", df[df["sales_conversion"] == 1].shape[0]/df.shape[0])
 
 # COMMAND ----------
 
